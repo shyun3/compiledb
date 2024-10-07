@@ -235,7 +235,7 @@ class CommandProcessor(bashlex.ast.nodevisitor):
        looking for and extracting compilation commands."""
     def process(line, wd):
         args = cross_platform_argline(line)
-        line = " ".join(args)
+        line = unescape(" ".join(args))
         trees = bashlex.parser.parse(line)
         if not trees:
             return []
@@ -305,5 +305,9 @@ class CommandProcessor(bashlex.ast.nodevisitor):
                                  compiler=self.compiler, filepath=self.filepath))
         # reset state to process new command
         self.reset()
+
+
+def unescape(s):
+    return s.encode('unicode_escape').decode()
 
 # ex: ts=2 sw=4 et filetype=python
