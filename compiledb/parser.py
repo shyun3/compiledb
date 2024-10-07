@@ -27,8 +27,8 @@ from compiledb.compiler import get_compiler
 from compiledb.utils import run_cmd
 
 # Internal variables used to parse build log entries
-cc_compile_regex = re.compile(r"^.*-?g?cc-?[0-9.]*$|^.*-?clang-?[0-9.]*$^.*-?cl?exe$|^.*-?(clang-)?cl?(\.exe)?$")
-cpp_compile_regex = re.compile(r"^.*-?[gc]\+\+-?[0-9.]*$|^.*-?clang\+\+-?[0-9.]*$|^.*-?(clang-)?cl?(\.exe)?$")
+cc_compile_regex = re.compile(r"^.*-?g?cc-?[0-9.]*(\.exe)?$|^.*-?clang-?[0-9.]*$|^.*-?(clang-)?cl(\.exe)?$")
+cpp_compile_regex = re.compile(r"^.*-?[gc]\+\+-?[0-9.]*(\.exe)?$|^.*-?clang\+\+-?[0-9.]*$|^.*-?(clang-)?cl(\.exe)?$")
 file_regex = re.compile(r"^.+\.c$|^.+\.cc$|^.+\.cpp$|^.+\.cxx$|^.+\.s$", re.IGNORECASE)
 compiler_wrappers = {"ccache", "icecc", "sccache"}
 
